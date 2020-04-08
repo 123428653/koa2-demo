@@ -44,13 +44,13 @@ router.get('/', async (ctx, next) => {
 			<script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
 			<script>
 				$(".file").on("change",function(){
-					alert(111)
 					submit()
 				})
 				function submit() {    
 			    var formData = new FormData();
 			    var file = $(".file").get(0).files[0];
 			    formData.append("photo", file);
+			    if (!file) return;
 			    $.ajax({
 			      url:"/upload",
 			      type:"POST",
